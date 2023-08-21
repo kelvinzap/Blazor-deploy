@@ -1,0 +1,23 @@
+﻿@page "/"
+@inject IConfiguration config
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<h1>Hello Youtube!</h1>
+
+<p class="h4">
+    Default connection string: @defaultConnection
+</p>
+
+@code{
+    private string defaultConnection = "";
+
+    protected override void OnInitialized()
+    {
+        defaultConnection = config.GetConnectionString("Default") ?? "Unknown";
+    }
+}
